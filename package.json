@@ -1,0 +1,44 @@
+{
+    "name": "loaded.js",
+    "description": "Node.js load and stress testing library for advanced and realistic use cases",
+    "main": "./lib/loaded",
+    "author": "Niels Krijger",
+    "version": "0.0.1",
+    "private": false,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nielskrijger/loaded.git"
+    },
+    "bugs" : {
+        "url" : "https://github.com/nielskrijger/loaded/issues"
+    },
+    "licenses" : [
+        {
+            "type" : "MIT",
+            "url" : "https://github.com/caolan/async/raw/master/LICENSE"
+        }
+    ],
+    "scripts": {
+        "start": "node app.js",
+        "test": "grunt test"
+    },
+    "engines": {
+        "node": "0.10.x"
+    },
+    "dependencies": {
+        "mocha": "~1.17.1",
+        "request": "~2.33.0",
+        "async": "^0.2.10"
+    },
+    "devDependencies": {
+        "aglio": "^1.12.1",
+        "mocha": "~1.17.1",
+        "grunt": "~0.4.x",
+        "grunt-contrib-jshint": "~0.8.x",
+        "grunt-contrib-clean": "~0.5.0",
+        "grunt-mocha-test": "~0.9.0",
+        "grunt-jsdoc": "~0.5.1",
+        "grunt-mocha-istanbul": "~0.1.3",
+        "chai": "^1.9.0"
+    }
+}
