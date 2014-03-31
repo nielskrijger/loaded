@@ -1,5 +1,5 @@
 {
-    "name": "loaded.js",
+    "name": "loaded",
     "description": "Node.js load and stress testing library for advanced and realistic use cases",
     "main": "./lib/loaded",
     "author": "Niels Krijger",
