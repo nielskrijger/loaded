@@ -1,0 +1,35 @@
+{
+    test: {
+        count: 20,
+        sum: 874,
+        mean: 43.7,
+        median: 34.5,
+        min: 7,
+        max: 92,
+        '90percentile': 85,
+        '95percentile': 92,
+        '99percentile': null
+    },
+    'test.1': {
+        count: 10,
+        sum: 627,
+        mean: 62.7,
+        median: 68.5,
+        min: 23,
+        max: 92,
+        '90percentile': 92,
+        '95percentile': null,
+        '99percentile': null
+    },
+    'test.2': {
+        count: 10,
+        sum: 247,
+        mean: 24.7,
+        median: 26.5,
+        min: 7,
+        max: 42,
+        '90percentile': 42,
+        '95percentile': null,
+        '99percentile': null
+    }
+}

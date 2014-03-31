@@ -202,7 +202,7 @@ passes an additional parameter to the next `test`.
             var timer = loaded.newTimer('test.1');
             setTimeout(function () {
                 timer.stop();
-                next(null, 'Iteration ' + n);
+                next(null, 'Iteration ' + n + ', ' + timer.time + 'ms');
             }, Math.round(Math.random() * 100));
         },
         function (var1, next) {
@@ -230,48 +230,48 @@ passes an additional parameter to the next `test`.
 Example output:
 
     Before all
-    Iteration 1
-    Iteration 3
-    Iteration 7
-    Iteration 5
-    Iteration 9
-    Iteration 4
-    Iteration 6
-    Iteration 2
-    Iteration 8
-    Iteration 10
+    Iteration 1, 23ms
+    Iteration 2, 51ms
+    Iteration 3, 45ms
+    Iteration 10, 38ms
+    Iteration 4, 72ms
+    Iteration 8, 76ms
+    Iteration 6, 65ms
+    Iteration 5, 92ms
+    Iteration 9, 80ms
+    Iteration 7, 85ms
     After all
     {
         test: {
             count: 20,
-            sum: 781,
-            mean: 39.05,
-            median: 33,
-            min: 11,
-            max: 94,
-            '90percentile': 75,
-            '95percentile': 94,
+            sum: 874,
+            mean: 43.7,
+            median: 34.5,
+            min: 7,
+            max: 92,
+            '90percentile': 85,
+            '95percentile': 92,
             '99percentile': null
         },
         'test.1': {
             count: 10,
-            sum: 517,
-            mean: 51.7,
-            median: 47,
-            min: 21,
-            max: 94,
-            '90percentile': 94,
+            sum: 627,
+            mean: 62.7,
+            median: 68.5,
+            min: 23,
+            max: 92,
+            '90percentile': 92,
             '95percentile': null,
             '99percentile': null
         },
         'test.2': {
             count: 10,
-            sum: 264,
-            mean: 26.4,
-            median: 29.5,
-            min: 11,
-            max: 41,
-            '90percentile': 41,
+            sum: 247,
+            mean: 24.7,
+            median: 26.5,
+            min: 7,
+            max: 42,
+            '90percentile': 42,
             '95percentile': null,
             '99percentile': null
         }
