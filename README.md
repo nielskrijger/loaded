@@ -8,19 +8,19 @@ useful when load testing more complex requests and advanced workflows.
 Performance metrics / stats
 ---------------------------
 
-Loaded.js does not automatically gather statistics on test execution performance. Gathering stats on the target application's
+Loaded.js does not automatically gather statistics on test execution performance. Gathering stats of the target application's
 performance is best done directly from the applications environment itself. If you're serious about your application's
 performance consider tracking performance metrics from the application using `StatsD`, `Logstash/Kibana` or something similar
 (also in production!).
 
-Having said that, Loaded.js comes with a stopwatch utility able to track execution times in milliseconds. Multiple
-stopwatches can be organized in a hierarchy to organize timers.
+Having said that, Loaded.js comes with a timer utility able to track execution times in milliseconds. Multiple
+timers can be organized in a hierarchy to organize timers.
 
-### Single stopwatch
+### Single timer
 
 TODO
 
-### Hierarchical stopwatch
+### Multiple timers (hierarchical)
 
 TODO
 
