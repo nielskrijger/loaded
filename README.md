@@ -1,6 +1,8 @@
 Loaded.js
 ==========
 
+[![Build Status via Travis CI](https://travis-ci.org/nielskrijger/loaded.png?branch=master)](https://travis-ci.org/nielskrijger/loaded)
+
 Loaded.js is a small Node.js load testing framework with a focus on flexibility and test organization. Loaded.js takes a
 a very minimal approach on how to specify a load test leaving a lot of work to the developer. This approach is particularly
 useful when load testing more complex requests and advanced workflows.
