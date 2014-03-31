@@ -3,7 +3,7 @@
     "description": "Node.js load and stress testing library for advanced and realistic use cases",
     "main": "./lib/loaded",
     "author": "Niels Krijger",
-    "version": "0.0.2",
+    "version": "0.1.0",
     "private": false,
     "repository": {
         "type": "git",
