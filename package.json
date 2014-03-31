@@ -26,8 +26,7 @@
         "node": "0.10.x"
     },
     "dependencies": {
-        "async": "^0.2.10",
-        "request": "~2.33.0"
+        "async": "^0.2.10"
     },
     "devDependencies": {
         "mocha": "~1.17.1",
