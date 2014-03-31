@@ -8,9 +8,7 @@ useful when load testing more complex requests and advanced workflows.
 HTTP Request example
 --------------------
 
-The example below requests the google homepage 50 times with a max of 5 concurrent users. To run the file, copy and paste the
-code snippit in a file (for example `app.js`), import dependencies by executing `npm install loaded` and `npm install request`,
-and finally run the script using `node app.js`.
+The example below requests the google homepage 50 times with a max of 5 concurrent users.
 
     var request = require('request');
     var loaded = require('loaded');
@@ -34,6 +32,12 @@ and finally run the script using `node app.js`.
     loadTest.run(function () {
         console.log('Finished');
     });
+
+To run the test, copy and paste the code snippet in a file (for example `test.js`) and run the following commands:
+
+    $ npm install loaded
+    $ npm install request
+    $ node test.js
 
 You can specify timers and multiple `beforeAll`, `afterAll` and `test` functions. See the detailed example below for more information.
 
