@@ -5,6 +5,8 @@ Loaded.js is a small Node.js load testing framework with a focus on flexibility 
 a very minimal approach on how to specify a load test leaving a lot of work to the developer. This approach is particularly
 useful when load testing more complex requests and advanced workflows.
 
+In its current form Loaded.js requires
+
 HTTP Request example
 --------------------
 
@@ -48,20 +50,18 @@ When creating a test you can pass an object with the following options:
 
  - `title`: a test title. Defaults to ''.
  - `iterations`: the number of iterations. Defaults to 1.
- - `concurrency`: the number of tests to run in parallel.
+ - `concurrency`: the number of tests to run in parallel. Defaults to 1.
  - `errorHandler`: an error handling function called when an error is detected in `beforeAll`, `afterAll` or `test` functions.
- The error handler signature is `function(err)`. Defaults printing the error to the console.
+ The error handler signature is `function(err)`. Defaults to printing the error to the console.
 
 Performance metrics / stats
 ---------------------------
 
 Loaded.js does not automatically gather statistics on test execution performance. Gathering stats of the target application's
-performance is best done directly from the applications environment itself. If you're serious about your application's
-performance consider tracking performance metrics from the application using `StatsD`, `Logstash/Kibana` or something similar
-(also in production!).
+performance is best done directly from the environment itself. If you're serious about your application's performance consider
+tracking performance metrics from the application using `StatsD`, `Logstash/Kibana` or something similar (also in production!).
 
-Having said that, Loaded.js comes with a timer utility able to track execution times in milliseconds. Multiple
-timers can be organized in a hierarchy to organize timers.
+Having said that, Loaded.js comes with a timer utility able to track execution times in milliseconds.
 
 ### Single timer
 
@@ -103,8 +103,8 @@ Example output:
 
 ### Multiple timers (hierarchical)
 
-You can create a timer hierarchy where lower levels are aggregated in upper levels. To do this simply separate timer hierarchy
-levels with a dot, for example:
+You can create a timer hierarchy to aggregate statistics of different timers. To do this simply separate timer hierarchy
+levels with a dot in the timer's name, for example:
 
     var loaded = require('loaded');
 
@@ -169,6 +169,9 @@ Example output:
             '99percentile': 50
         }
     }
+
+Notice the two timers `test.1` and `test.2` produce three timer outputs: `test.1`, `test.2` and `test` (the latter
+being the aggregate of the other two timers).
 
 Detailed example
 ----------------
