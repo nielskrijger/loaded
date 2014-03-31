@@ -186,7 +186,7 @@ passes an additional parameter to the next `test`.
     var loadTest = loaded.newTest({
         title: 'Detailed load test example',
         iterations: 10,
-        concurrency: 20
+        concurrency: 3
     });
     loadTest.beforeAll([
         function (next) {
@@ -230,48 +230,48 @@ passes an additional parameter to the next `test`.
 Example output:
 
     Before all
-    Iteration 1, 23ms
-    Iteration 2, 51ms
-    Iteration 3, 45ms
-    Iteration 10, 38ms
-    Iteration 4, 72ms
-    Iteration 8, 76ms
-    Iteration 6, 65ms
-    Iteration 5, 92ms
-    Iteration 9, 80ms
-    Iteration 7, 85ms
+    Iteration 1, 19ms
+    Iteration 3, 57ms
+    Iteration 5, 1ms
+    Iteration 2, 76ms
+    Iteration 4, 83ms
+    Iteration 7, 52ms
+    Iteration 8, 18ms
+    Iteration 9, 2ms
+    Iteration 10, 19ms
+    Iteration 6, 102ms
     After all
     {
         test: {
             count: 20,
-            sum: 874,
-            mean: 43.7,
-            median: 34.5,
-            min: 7,
-            max: 92,
-            '90percentile': 85,
-            '95percentile': 92,
+            sum: 742,
+            mean: 37.1,
+            median: 37.5,
+            min: 1,
+            max: 102,
+            '90percentile': 83,
+            '95percentile': 102,
             '99percentile': null
         },
         'test.1': {
             count: 10,
-            sum: 627,
-            mean: 62.7,
-            median: 68.5,
-            min: 23,
-            max: 92,
-            '90percentile': 92,
+            sum: 429,
+            mean: 42.9,
+            median: 35.5,
+            min: 1,
+            max: 102,
+            '90percentile': 102,
             '95percentile': null,
             '99percentile': null
         },
         'test.2': {
             count: 10,
-            sum: 247,
-            mean: 24.7,
-            median: 26.5,
-            min: 7,
-            max: 42,
-            '90percentile': 42,
+            sum: 313,
+            mean: 31.3,
+            median: 37.5,
+            min: 5,
+            max: 46,
+            '90percentile': 46,
             '95percentile': null,
             '99percentile': null
         }
