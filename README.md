@@ -8,7 +8,9 @@ useful when load testing more complex requests and advanced workflows.
 HTTP Request example
 --------------------
 
-The following example requests the google homepage 50 times with a max of 5 concurrent users.
+The example below requests the google homepage 50 times with a max of 5 concurrent users. To run the file, copy and paste the
+code snippit in a file (for example `app.js`), import dependencies by executing `npm install loaded` and `npm install request`,
+and finally run the script using `node app.js`.
 
     var request = require('request');
     var loaded = require('loaded');
@@ -33,14 +35,14 @@ The following example requests the google homepage 50 times with a max of 5 conc
         console.log('Finished');
     });
 
-You can specify timers and multiple `beforeAll`, `afterAll` and `test` functions. See the detailed example for more information.
+You can specify timers and multiple `beforeAll`, `afterAll` and `test` functions. See the detailed example below for more information.
 
 Test options
 ------------
 
 When creating a test you can pass an object with the following options:
 
- - `title`: an optional test title. Defaults to ''.
+ - `title`: a test title. Defaults to ''.
  - `iterations`: the number of iterations. Defaults to 1.
  - `concurrency`: the number of tests to run in parallel.
  - `errorHandler`: an error handling function called when an error is detected in `beforeAll`, `afterAll` or `test` functions.
