@@ -15,7 +15,8 @@ describe('lib/Suite.js', function () {
             var test = new Suite({
                 title: 'test',
                 iterations: 50,
-                concurrency: 5
+                concurrency: 5,
+                progressInterval: 100
             });
             var beforeAllCount = 0;
             var testCount = 0;

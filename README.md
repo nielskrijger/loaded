@@ -55,6 +55,8 @@ When creating a test you can pass an object with the following options:
  - `concurrency`: the number of tests to run in parallel. Defaults to 1.
  - `errorHandler`: an error handling function called when an error is detected in `beforeAll`, `afterAll` or `test` functions.
  The error handler signature is `function(err)`. Defaults to printing the error to the console.
+ - `progressInterval`: the number of milliseconds to print a progress status to the console. When `0` or `null` disables the
+ progress bar. Defaults to `null`.
 
 Performance metrics / stats
 ---------------------------
@@ -291,3 +293,13 @@ To run tests and verify the code style, run the following command from the comma
 
 The test run will also run a code coverage tool that outputs a code coverage overview on the command line.
 More detailed output can be found in the generated `/coverage` directory.
+
+Version history
+---------------
+
+v0.1.1
+- Updated documentation
+- Added progress bar with progress interval
+
+v0.1.0
+- Initial release
