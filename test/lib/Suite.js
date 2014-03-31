@@ -12,7 +12,11 @@ describe('lib/Suite.js', function () {
 
     describe('#run()', function () {
         it('should run multiple beforeAll functions, afterAll functions and tests', function (done) {
-            var test = new Suite('test', 50, 5);
+            var test = new Suite({
+                title: 'test',
+                iterations: 50,
+                concurrency: 5
+            });
             var beforeAllCount = 0;
             var testCount = 0;
             var afterAllCount = 0;
@@ -55,7 +59,8 @@ describe('lib/Suite.js', function () {
                     next();
                 }
             ]);
-            test.run(function (err) {
+            test.run(function () {
+                assert.equal(test.title, 'test');
                 assert.equal(beforeAllCount, 1);
                 assert.equal(testCount, 50);
                 assert.equal(afterAllCount, 1);
@@ -64,27 +69,80 @@ describe('lib/Suite.js', function () {
         });
 
         it('should run a single beforeAll function, afterAll function and test', function (done) {
-            var test2 = new Suite('test', 50, 5);
+            var test = new Suite({
+                iterations: 50,
+                concurrency: 5
+            });
             var beforeAllCount = 0;
             var testCount = 0;
             var afterAllCount = 0;
-            test2.beforeAll(function (next) {
+            test.beforeAll(function (next) {
                 beforeAllCount++;
                 next(null, 'test');
             });
-            test2.test(function (n, next) {
+            test.test(function (n, next) {
                 testCount++;
                 next(null, 'test');
             });
 
-            test2.afterAll(function (next) {
+            test.afterAll(function (next) {
                 afterAllCount++;
                 next(null, 'test');
             });
-            test2.run(function (err) {
+            test.run(function () {
                 assert.equal(beforeAllCount, 1);
                 assert.equal(testCount, 50);
                 assert.equal(afterAllCount, 1);
+                done();
+            });
+        });
+
+        it('should handle errors correctly', function (done) {
+            var errorCount = 0;
+            var testCount = 0;
+            var test = new Suite({
+                iterations: 50,
+                concurrency: 5,
+                errorHandler: function (err) {
+                    assert.equal('Error', err);
+                    errorCount++;
+                }
+            });
+            test.test(function (n, next) {
+                testCount++;
+                next('Error');
+            });
+            test.run(function () {
+                assert.equal(testCount, 50);
+                assert.equal(errorCount, 50);
+                done();
+            });
+        });
+
+        it('should fail when no tests are set', function (done) {
+            var errorCount = 0;
+            var test = new Suite({
+                errorHandler: function (err) {
+                    assert.equal('No tests are set', err);
+                    errorCount++;
+                }
+            });
+            test.run(function () {
+                assert.equal(errorCount, 1);
+                done();
+            });
+        });
+
+        it('should set default options', function (done) {
+            var test = new Suite();
+            test.test(function (n, next) {
+                next();
+            });
+            test.run(function () {
+                assert.equal(test.title, '');
+                assert.equal(test.concurrency, 1);
+                assert.equal(test.iterations, 1);
+                assert.equal(typeof test.errorHandler, 'function');
                 done();
             });
         });

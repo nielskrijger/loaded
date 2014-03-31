@@ -9,13 +9,13 @@
         "type": "git",
         "url": "https://github.com/nielskrijger/loaded.git"
     },
-    "bugs" : {
-        "url" : "https://github.com/nielskrijger/loaded/issues"
+    "bugs": {
+        "url": "https://github.com/nielskrijger/loaded/issues"
     },
-    "licenses" : [
+    "licenses": [
         {
-            "type" : "MIT",
-            "url" : "https://github.com/caolan/async/raw/master/LICENSE"
+            "type": "MIT",
+            "url": "https://github.com/caolan/async/raw/master/LICENSE"
         }
     ],
     "scripts": {
@@ -26,11 +26,11 @@
         "node": "0.10.x"
     },
     "dependencies": {
-        "mocha": "~1.17.1",
-        "request": "~2.33.0",
-        "async": "^0.2.10"
+        "async": "^0.2.10",
+        "request": "~2.33.0"
     },
     "devDependencies": {
+        "mocha": "~1.17.1",
         "aglio": "^1.12.1",
         "mocha": "~1.17.1",
         "grunt": "~0.4.x",
